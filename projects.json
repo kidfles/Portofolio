@@ -1,0 +1,78 @@
+{
+  "projects": [
+    {
+      "id": "supermarkt-planning",
+      "title": "Plannings- & Prognosesysteem voor Supermarkt",
+      "tagline": "C#/.NET backend + HTML/CSS/JS frontend voor roosters en vraagprognoses",
+      "summary": "End-to-end webapp voor een (fictieve) supermarktketen om diensten te plannen en prognoses per afdeling te maken.",
+      "highlights": [
+        "CRUD voor medewerkers, diensten en afdelingen",
+        "Prognosemodule met invoer en berekende uitkomsten",
+        "Authenticatie en eenvoudige RBAC, invoervalidaties"
+      ],
+      "stack": [
+        "C#",
+        ".NET",
+        "SQL",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "links": {
+        "demo": "#",
+        "repo": "#",
+        "caseStudy": "#"
+      },
+      "image": "images/placeholder.svg",
+      "imageAlt": "Screenshot van het planningssysteem"
+    },
+    {
+      "id": "formulierbouwer",
+      "title": "Aanpasbare Formulieren Webapp",
+      "tagline": "PHP + JavaScript formulierenbouwer met Microsoft Forms integratie",
+      "summary": "Gebruikers kunnen formulieren samenstellen en stijlen, velden beheren en reacties exporteren of doorsturen (incl. MS Forms).",
+      "highlights": [
+        "Drag‑and‑drop veldbeheer met validaties",
+        "Themapresets en inline styling",
+        "Export/pipeline voor reacties (bijv. CSV / MS Forms)"
+      ],
+      "stack": [
+        "PHP",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Microsoft Forms"
+      ],
+      "links": {
+        "demo": "#",
+        "repo": "#",
+        "caseStudy": "#"
+      },
+      "image": "images/placeholder.svg",
+      "imageAlt": "Screenshot van de formulierenbouwer"
+    },
+    {
+      "id": "marketing-site",
+      "title": "Marketingwebsite (Statisch)",
+      "tagline": "HTML/CSS/JS site gericht op performance, SEO en toegankelijkheid",
+      "summary": "Statische marketingwebsite met hoge Lighthouse-scores, semantische HTML en responsive design.",
+      "highlights": [
+        "Core Web Vitals optimalisaties",
+        "Toegankelijke componenten (navigatie, formulieren, alt-teksten)",
+        "SEO-basis (meta/OG-tags, sitemap, robots.txt)"
+      ],
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "links": {
+        "demo": "#",
+        "repo": "#",
+        "caseStudy": "#"
+      },
+      "image": "images/placeholder.svg",
+      "imageAlt": "Screenshot van de marketingwebsite"
+    }
+  ]
+}

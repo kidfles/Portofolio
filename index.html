@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daan Hoeksema — Portfolio</title>
+  <meta name="description" content="C#/.NET, PHP en JavaScript ontwikkelaar — geselecteerde projecten, casestudies en contact." />
+  <link rel="icon" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Daan Hoeksema — Portfolio" />
+  <meta property="og:description" content="C#/.NET, PHP en JavaScript ontwikkelaar — geselecteerde projecten en casestudies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jouwdomein.nl" />
+  <meta property="og:image" content="og-image.png" />
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Daan Hoeksema",
+    "url": "https://daanhoeksema.nl",
+    "jobTitle": "Softwareontwikkelaar",
+    "knowsAbout": ["C#", ".NET", "PHP", "JavaScript", "HTML", "CSS"],
+    "sameAs": ["https://github.com/kidfles", "https://www.linkedin.com/in/daan-hoeksema-96b001236/"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#projecten">Spring naar projecten</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">◆</span>
+        <a href="/" class="brand-name">Daan Hoeksema</a>
+      </div>
+      <nav aria-label="Hoofdmenu" class="nav">
+        <a href="https://github.com/kidfles" target="_blank" rel="noopener">GitHub</a>
+        <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="mailto:daanhoeksema24@gmail.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>C# / .NET • PHP • JavaScript</h1>
+        <p class="lead">
+          Ik bouw snelle, toegankelijke webapps en sites — van planningssystemen tot aanpasbare formulierbouwers en statische marketingpagina's.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:daanhoeksema24@gmail.com">E-mail sturen</a>
+          <a class="btn btn-outline" href="https://github.com/kidfles" target="_blank" rel="noopener">Bekijk GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projecten">
+      <div class="container">
+        <h2>Geselecteerde projecten</h2>
+        <div id="project-grid" class="grid" aria-live="polite" aria-busy="true"></div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container">
+        <h2>Over mij</h2>
+        <p>
+          Student softwareontwikkeling met focus op praktische, production-ready oplossingen.
+          Ervaring met C#, PHP en JavaScript; extra aandacht voor performance, toegankelijkheid en nette code.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container foot-inner">
+      <p>© <span id="year"></span> Daan Hoeksema. Gebouwd met HTML/CSS/JS. Gehost op Cloudflare Pages.</p>
+      <div class="foot-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="mailto:daanhoeksema24@gmail.com">daanhoeksema24@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <template id="project-card-template">
+    <article class="card" itemscope itemtype="https://schema.org/CreativeWork">
+      <div class="card-media">
+        <img class="card-img" alt="" loading="lazy" decoding="async" />
+      </div>
+      <div class="card-body">
+        <h3 class="card-title" itemprop="name"></h3>
+        <p class="card-tagline"></p>
+        <p class="card-summary" itemprop="abstract"></p>
+        <ul class="card-highlights"></ul>
+        <div class="chip-row"></div>
+        <div class="card-actions">
+          <a class="btn btn-primary demo-link" target="_blank" rel="noopener">Live‑demo</a>
+          <a class="btn btn-outline code-link" target="_blank" rel="noopener">Broncode</a>
+          <a class="btn btn-ghost case-link" target="_blank" rel="noopener">Casestudy</a>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
