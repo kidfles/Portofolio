@@ -18,6 +18,37 @@ async function loadProjects(){
       img.src = p.image || 'images/placeholder.svg';
       img.alt = p.imageAlt || p.title;
 
+      // Image gallery (als er meerdere screenshots zijn)
+      const gallery = node.querySelector('.image-gallery');
+      if (gallery) {
+        if (p.images && Array.isArray(p.images) && p.images.length > 1) {
+          p.images.forEach((imageSrc, index) => {
+            const thumb = document.createElement('button');
+            thumb.className = 'gallery-thumb';
+            thumb.type = 'button';
+            thumb.setAttribute('aria-label', `Toon screenshot ${index + 1}`);
+            if (imageSrc === p.image) {
+              thumb.classList.add('active');
+            }
+            const thumbImg = document.createElement('img');
+            thumbImg.src = imageSrc;
+            thumbImg.alt = '';
+            thumbImg.loading = 'lazy';
+            thumb.appendChild(thumbImg);
+            
+            thumb.addEventListener('click', () => {
+              img.src = imageSrc;
+              gallery.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+              thumb.classList.add('active');
+            });
+            
+            gallery.appendChild(thumb);
+          });
+        } else {
+          gallery.remove();
+        }
+      }
+
       // Tekst
       node.querySelector('.card-title').textContent = p.title;
       node.querySelector('.card-tagline').textContent = p.tagline;

@@ -1,6 +1,37 @@
 {
   "projects": [
     {
+      "id": "route-optimizer",
+      "title": "Route Optimizer",
+      "tagline": "PHP backend + HTML/CSS/JS frontend voor geoptimaliseerde routeplanning",
+      "summary": "Webapplicatie voor het optimaliseren van routes tussen meerdere locaties. Met visuele kaartweergave, locatiebeheer en geoptimaliseerde routeberekening.",
+      "highlights": [
+        "Route optimalisatie algoritme",
+        "Interactieve kaartweergave met routes",
+        "Locatiebeheer met CRUD functionaliteit",
+        "Visuele weergave van geoptimaliseerde routes"
+      ],
+      "stack": [
+        "PHP",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "MySQL"
+      ],
+      "links": {
+        "demo": "",
+        "repo": "",
+        "caseStudy": ""
+      },
+      "image": "images/RoutPlanner-routesMap.png",
+      "imageAlt": "Screenshot van de route optimizer met kaartweergave",
+      "images": [
+        "images/RoutPlanner-routesMap.png",
+        "images/RoutPlanner-routes.png",
+        "images/RoutPlanner-locations.png"
+      ]
+    },
+    {
       "id": "supermarkt-planning",
       "title": "Plannings- & Prognosesysteem voor Supermarkt",
       "tagline": "C#/.NET backend + HTML/CSS/JS frontend voor roosters en vraagprognoses",
