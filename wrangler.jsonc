@@ -2,6 +2,6 @@
     "name": "kidfles-portofolio",
     "compatibility_date": "2025-11-19",
     "assets": {
-      "directory": "kidfles-portofolio"
+      "directory": "."
     }
   }
