@@ -5,6 +5,76 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const grid = document.getElementById('project-grid');
 const tpl = document.getElementById('project-card-template');
 
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-image');
+const lightboxMeta = document.getElementById('lightbox-meta');
+const lightboxPrev = document.getElementById('lightbox-prev');
+const lightboxNext = document.getElementById('lightbox-next');
+const lightboxCloseBtn = document.querySelector('.lightbox-close');
+const lightboxBackdrop = document.querySelector('.lightbox-backdrop');
+
+let lightboxImages = [];
+let lightboxIndex = 0;
+let lightboxTitle = '';
+let lightboxAlt = '';
+
+function toggleBodyScroll(block){
+  document.documentElement.style.overflow = block ? 'hidden' : '';
+  document.body.style.overflow = block ? 'hidden' : '';
+}
+
+function updateLightbox(){
+  if(!lightboxImages.length) return;
+  lightboxImg.src = lightboxImages[lightboxIndex];
+  lightboxImg.alt = lightboxAlt || lightboxTitle || 'Projectafbeelding';
+  const label = lightboxImages.length > 1
+    ? `Afbeelding ${lightboxIndex + 1} van ${lightboxImages.length}`
+    : 'Projectafbeelding';
+  lightboxMeta.textContent = lightboxTitle ? `${lightboxTitle} — ${label}` : label;
+  const disableNav = lightboxImages.length <= 1;
+  lightboxPrev.disabled = disableNav;
+  lightboxNext.disabled = disableNav;
+}
+
+function openLightbox(images, startIndex = 0, altText = '', title = ''){
+  if(!images || !images.length) return;
+  lightboxImages = images;
+  lightboxIndex = Math.min(Math.max(startIndex, 0), images.length - 1);
+  lightboxAlt = altText;
+  lightboxTitle = title;
+  lightbox.hidden = false;
+  lightbox.setAttribute('aria-hidden', 'false');
+  updateLightbox();
+  toggleBodyScroll(true);
+}
+
+function closeLightbox(){
+  lightbox.hidden = true;
+  lightbox.setAttribute('aria-hidden', 'true');
+  lightboxImages = [];
+  lightboxIndex = 0;
+  lightboxTitle = '';
+  lightboxAlt = '';
+  toggleBodyScroll(false);
+}
+
+function shiftLightbox(delta){
+  if(lightboxImages.length <= 1) return;
+  lightboxIndex = (lightboxIndex + delta + lightboxImages.length) % lightboxImages.length;
+  updateLightbox();
+}
+
+lightboxPrev?.addEventListener('click', () => shiftLightbox(-1));
+lightboxNext?.addEventListener('click', () => shiftLightbox(1));
+lightboxCloseBtn?.addEventListener('click', closeLightbox);
+lightboxBackdrop?.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', e => {
+  if(lightbox.hidden) return;
+  if(e.key === 'Escape') closeLightbox();
+  if(e.key === 'ArrowRight') shiftLightbox(1);
+  if(e.key === 'ArrowLeft') shiftLightbox(-1);
+});
+
 async function loadProjects(){
   try{
     const res = await fetch('projects.json', {cache: 'no-store'});
@@ -14,20 +84,32 @@ async function loadProjects(){
     data.projects.forEach(p => {
       const node = tpl.content.cloneNode(true);
       // Afbeelding
+      const fallbackImage = p.image || 'images/placeholder.svg';
+      let projectImages = Array.isArray(p.images) && p.images.length ? [...p.images] : [];
+      if(!projectImages.length){
+        projectImages = [fallbackImage];
+      }else if(!projectImages.includes(fallbackImage)){
+        projectImages.unshift(fallbackImage);
+      }
+      let selectedImageIndex = Math.max(0, projectImages.findIndex(src => src === fallbackImage));
+      if(selectedImageIndex === -1) selectedImageIndex = 0;
       const img = node.querySelector('.card-img');
-      img.src = p.image || 'images/placeholder.svg';
+      img.src = fallbackImage;
       img.alt = p.imageAlt || p.title;
+      img.addEventListener('click', () => {
+        openLightbox(projectImages, selectedImageIndex, p.imageAlt || p.title, p.title);
+      });
 
       // Image gallery (als er meerdere screenshots zijn)
       const gallery = node.querySelector('.image-gallery');
       if (gallery) {
-        if (p.images && Array.isArray(p.images) && p.images.length > 1) {
-          p.images.forEach((imageSrc, index) => {
+        if (projectImages.length > 1) {
+          projectImages.forEach((imageSrc, index) => {
             const thumb = document.createElement('button');
             thumb.className = 'gallery-thumb';
             thumb.type = 'button';
             thumb.setAttribute('aria-label', `Toon screenshot ${index + 1}`);
-            if (imageSrc === p.image) {
+            if (index === selectedImageIndex) {
               thumb.classList.add('active');
             }
             const thumbImg = document.createElement('img');
@@ -38,6 +120,7 @@ async function loadProjects(){
             
             thumb.addEventListener('click', () => {
               img.src = imageSrc;
+              selectedImageIndex = index;
               gallery.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
               thumb.classList.add('active');
             });

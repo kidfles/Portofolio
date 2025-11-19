@@ -34,7 +34,7 @@
     {
       "id": "supermarkt-planning",
       "title": "Plannings- & Prognosesysteem voor Supermarkt",
-      "tagline": "C#/.NET backend + HTML/CSS/JS frontend voor roosters en vraagprognoses",
+      "tagline": "C#/.NET backend/Microsoft Azure + HTML/CSS/JS frontend voor roosters en vraagprognoses",
       "summary": "End-to-end webapp voor een (fictieve) supermarktketen om diensten te plannen en prognoses per afdeling te maken.",
       "highlights": [
         "CRUD voor medewerkers, diensten en afdelingen",
@@ -54,8 +54,14 @@
         "repo": "#",
         "caseStudy": "#"
       },
-      "image": "images/placeholder.svg",
-      "imageAlt": "Screenshot van het planningssysteem"
+      "image": "images/bumbo/Schermafbeelding 2025-11-19 123123.png",
+      "imageAlt": "Screenshot van het planningssysteem",
+      "images": [
+        "images/bumbo/Schermafbeelding 2025-11-19 123123.png",
+        "images/bumbo/Schermafbeelding 2025-11-19 123157.png",
+        "images/bumbo/Schermafbeelding 2025-11-19 123218.png",
+        "images/bumbo/Schermafbeelding 2025-11-19 123356.png"
+      ]
     },
     {
       "id": "formulierbouwer",
@@ -79,14 +85,22 @@
         "repo": "#",
         "caseStudy": "#"
       },
-      "image": "images/placeholder.svg",
-      "imageAlt": "Screenshot van de formulierenbouwer"
+      "image": "images/blendbarometer/Schermafbeelding 2025-11-19 131408.png",
+      "imageAlt": "Screenshot van de formulierenbouwer",
+      "images": [
+        "images/blendbarometer/Schermafbeelding 2025-11-19 131408.png",
+        "images/blendbarometer/Schermafbeelding 2025-11-19 131431.png",
+        "images/blendbarometer/Schermafbeelding 2025-11-19 131459.png",
+        "images/blendbarometer/Schermafbeelding 2025-11-19 132045.png",
+        "images/blendbarometer/Schermafbeelding 2025-11-19 132052.png",
+        "images/blendbarometer/Schermafbeelding 2025-11-19 132034.png"
+      ]
     },
     {
       "id": "marketing-site",
       "title": "Marketingwebsite (Statisch)",
       "tagline": "HTML/CSS/JS site gericht op performance, SEO en toegankelijkheid",
-      "summary": "Statische marketingwebsite met hoge Lighthouse-scores, semantische HTML en responsive design.",
+      "summary": "Statische marketingwebsite met semantische HTML en responsive design.",
       "highlights": [
         "Core Web Vitals optimalisaties",
         "Toegankelijke componenten (navigatie, formulieren, alt-teksten)",
@@ -102,7 +116,7 @@
         "repo": "#",
         "caseStudy": "#"
       },
-      "image": "images/placeholder.svg",
+      "image": "images/FamousWebsite.png",
       "imageAlt": "Screenshot van de marketingwebsite"
     }
   ]
