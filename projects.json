@@ -19,9 +19,9 @@
         "MySQL"
       ],
       "links": {
-        "demo": "",
-        "repo": "",
-        "caseStudy": ""
+        "demo": "demo/route-optimizer/index.html",
+        "repo": "#",
+        "caseStudy": "#"
       },
       "image": "images/RoutPlanner-routesMap.png",
       "imageAlt": "Screenshot van de route optimizer met kaartweergave",
